@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Transfer Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url(a44.jpg);
+            background-repeat:no-repeat ;
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="margin-top: 150px;">
+    <div class="container">
+        <h2>📡 Data Transfer Monitor</h2>
+        <input type="number" id="dataInput" placeholder="Data Transfer (MB)">
+        <button onclick="checkDataTransfer()">Analyze Data</button>
+        <div class="output" id="dataOutput"></div>
+    </div>
+    <script>
+        function checkDataTransfer() 
+        {
+            let dataSize = document.getElementById("dataInput").value;
+            if (dataSize > 1000) {
+                document.getElementById("dataOutput").innerHTML = "⚠️ Unusual Data Transfer Detected!";
+                document.getElementById("dataOutput").style.color = "red";
+            } else {
+                document.getElementById("dataOutput").innerHTML = "✅ Normal Data Usage.";
+                document.getElementById("dataOutput").style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>

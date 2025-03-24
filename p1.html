@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Link Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url(a1.jpg);
+            background-repeat:no-repeat ;
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #c9cfd2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="margin-top: 150px;">
+    <div class="container">
+        <h2>🔗 Phishing Link Checker</h2>
+        <input type="text" id="urlInput" placeholder="Enter a URL">
+        <button onclick="checkPhishing()">Check URL</button>
+        <div class="output" id="urlOutput"></div>
+    </div>
+    <script>
+        function checkPhishing() {
+            let url = document.getElementById("urlInput").value;
+            if (!url.startsWith("https://")) {
+                document.getElementById("urlOutput").innerHTML = "⚠️ Warning: This URL may not be secure!";
+                document.getElementById("urlOutput").style.color = "red";
+            } else {
+                document.getElementById("urlOutput").innerHTML = "✅ Secure URL detected.";
+                document.getElementById("urlOutput").style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>

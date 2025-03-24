@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weak Password Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url(a33333.webp);
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="margin-top: 150px;">
+    <div class="container">
+        <h2>🔒 Weak Password Checker</h2>
+        <input type="password" id="passwordInput" placeholder="Enter a password">
+        <button onclick="checkPassword()">Check Password</button>
+        <div class="output" id="passwordOutput"></div>
+    </div>
+    <script>
+        function checkPassword() 
+        {
+            let c = document.getElementById("passwordInput").value;
+            let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[\W]).{8,}$/;
+            console.log(passwordRegex.test(c));
+            if (passwordRegex.test(c)) {
+                document.getElementById("passwordOutput").innerHTML = "✅ Strong Password!";
+                document.getElementById("passwordOutput").style.color = "green";
+            } else {
+                document.getElementById("passwordOutput").innerHTML = "⚠️ Weak Password! Ensure it's at least 8 characters long, with a mix of uppercase, lowercase, numbers, and symbols.";
+                document.getElementById("passwordOutput").style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

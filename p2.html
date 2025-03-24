@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDoS Traffic Monitoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url(a2.webp);
+            background-repeat:no-repeat ;
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="margin-top: 150px;">
+    <div class="container">
+        <h2>📊 DDoS Traffic Monitoring</h2>
+        <input type="number" id="trafficInput" placeholder="Requests per minute">
+        <button onclick="checkDDoS()">Analyze Traffic</button>
+        <div class="output" id="trafficOutput"></div>
+    </div>
+    <script>
+        function checkDDoS() {
+            let requests = document.getElementById("trafficInput").value;
+            if (requests > 1000) {
+                document.getElementById("trafficOutput").innerHTML = "⚠️ High Traffic Detected! Possible DDoS attack.";
+                document.getElementById("trafficOutput").style.color = "red";
+            } else {
+                document.getElementById("trafficOutput").innerHTML = "✅ Normal Traffic Level.";
+                document.getElementById("trafficOutput").style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>

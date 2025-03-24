@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Registration Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(252, 252, 252);
+            color: #000000;
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-div {
+            margin-bottom: 30px;
+        }
+        .top-div h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            text-align: left;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: background 0.3s ease;
+        }
+        input:focus {
+            background: #dcdcdc;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button[type="reset"] {
+            background-color: #ff6347;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #e5533d;
+        }
+        @media (max-width: 768px) {
+            .top-div h1 {
+                font-size: 1.8rem;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            input {
+                font-size: 0.9rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+       <div class="top-div">
+        <h1>Cyber Security Registration Form</h1>
+    </div>
+    <form id="registrationForm" style="color: blue;">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter First Name" required>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Enter Last Name" required>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" placeholder="Email" required>
+        <label for="contact">Contact Number:</label>
+        <input type="tel" id="contact" placeholder="Contact Number" required>
+        <button type="button" onclick="storeAndRedirect()">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <script>
+        function storeAndRedirect() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            if (firstName && lastName) {
+                const fullName = `${firstName} ${lastName}`;
+                localStorage.setItem('userName', fullName);
+                window.location.href = 'casestudy.html';
+            } else {
+                alert('Please fill in both First Name and Last Name.');
+            }
+        }
+    </script>
+</body>
+</html>

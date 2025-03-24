@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Webpage with Image and Hover Boxes</title>
+    <link rel="stylesheet" href="example.css">
+</head>
+<body>
+    <div class="big">
+    <div class="top-div">
+        <div class="name-display" id="nameDisplay">Welcome!</div>
+        <h1>CYBER SECURITY AND ETHICAL HACKING</h1>
+        <p>DARK WEB & CYBERCRIME</p>
+        <a href="register.html" class="hover-box" target="_blank">
+            <p>Login</p>
+        </a>
+    </div>        
+    <div class="image-container">
+        <img src="PROTECT.webp" alt="Image" class="main-image">
+    </div>
+    <div class="box-container">
+        <a href="p1.html" class="box-link" target="_blank">
+            <div class="box" id="b1">
+                <div class="box-text"><h3 style="color: aliceblue;">🚨Phishing URL</h3>
+                    <p style="color:blanchedalmond;">Ensure Your Online Safety</p>
+                    <p style="color: cyan;">Quickly Detect Phishing Links</p>
+                        <p style="color: cyan;">with Our Checker!</p>
+                </div>
+            </div>
+        </a>
+        <a href="p2.html" class="box-link" target="_blank">
+            <div class="box" id="b2">
+                <div class="box-text"><h3 style="color: rgb(244, 156, 61);">🔍 Stay Alert</h3>
+                    <p style="color: cornsilk;">Track Unusual Data Transfer </p>
+                    <p style="color: cornsilk;">Activity and Prevent Leaks!</p>
+                </div>
+            </div>
+        </a>
+        <a href="p3.html" class="box-link" target="_blank">
+            <div class="box" id="b3">
+                <div class="box-text"><h3 style="color: crimson;">🔒strong password</h3>
+                    <p style="color:blanchedalmond;"> Strengthen Your Security:</p>
+                        <p>Test Your Password for</p>
+                            <p> Maximum Protection!</p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="box-container">
+        <a href="p4.html" class="box-link" target="_blank">
+            <div class="box" id="b4">
+                <div class="box-text"><h3 style="color: crimson;">📡 Monitor Your Network:</h3>
+                    <p style="color:blanchedalmond;"> Detect Unusual Data  </p>
+                        <p style="color:blanchedalmond;">Transfers and Safeguard</p>
+                            <p style="color:blanchedalmond;"> Your Data!</p>
+                </div>
+            </div>
+        </a>
+        <a href="p5.html" class="box-link" target="_blank">
+            <div class="box" id="b5">
+                <div class="box-text"><h3 style="color: rgb(0, 0, 0);">File Scanner:</h3>
+                    <p style="color:rgb(180, 119, 28);">  Real-time Threat</p>
+                        <p style="color:rgb(180, 130, 55);"> Detection and Analysis</p>
+                </div>
+            </div>
+        </a>
+        <a href="p6.html" class="box-link" target="_blank">
+            <div class="box" id="b6">
+                <div class="box-text"><h3 style="color: rgb(0, 0, 0);">2-step verification</h3>
+                    <p style="color:rgb(180, 119, 28);"> Extra step </p>
+                        <p style="color:rgb(180, 130, 55);"> extra protection</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="back">
+        <button id="back-to-top" onclick="scrollToTop()">
+            Back to Top
+        </button>
+    </div>
+    <div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Get to Know Us</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">detectors</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.cybercrime.gov" target="_blank">Cyber Crime</a></li>
+                        <li><a href="https://www.owasp.org" target="_blank">OWASP</a></li>
+                        <li><a href="https://www.cisa.gov" target="_blank">CISA</a></li>                        
+                        <li><a href="https://www.cybrary.it" target="_blank">Cybrary </a></li>
+                        <li><a href="https://www.hackerone.com" target="_blank">HackerOne </a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Reference</h3>
+                    <ul>
+                        <li>Privacy Policy</li>
+                        <li>Terms of Service</li>
+                        <li>free to detect</li>
+                        <li>safety checker</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; security website | created by Rohini</p>
+            </div>
+        </footer>        
+    </div>
+    </div>
+    <script>
+        window.onload = function () {
+            const storedName = localStorage.getItem('userName');
+            if (storedName) {
+                document.getElementById('nameDisplay').textContent = `Welcome, ${storedName}!`;
+            }
+        };
+        window.onscroll = function () {
+            const button = document.getElementById('back-to-top');
+            if (document.documentElement.scrollTop > 300) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

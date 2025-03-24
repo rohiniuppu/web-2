@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-step Verification</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        let generatedCaptcha;
+        function generateCaptcha() {
+            let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            generatedCaptcha = '';
+            for (let i = 0; i < 6; i++) {
+                generatedCaptcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            let captchaText = document.getElementById("captchaText");
+            captchaText.innerText = generatedCaptcha;
+            captchaText.style.fontSize = "24px";
+            captchaText.style.letterSpacing = "3px";
+            captchaText.style.transform = `rotate(${Math.random() * 10 - 5}deg)`;
+            captchaText.style.color = getRandomColor();
+            document.getElementById("captchaSection").style.display = "block";
+        }
+        function verifyCaptcha() {
+            let email = document.getElementById("email").value;
+            let enteredCaptcha = document.getElementById("captchaInput").value;
+            if (email.trim() === "") {
+                alert("Please enter your email before verifying CAPTCHA.");
+                return;
+            }
+            if (enteredCaptcha === generatedCaptcha) {
+                alert("✅ Captcha Verified Successfully!");
+            } else {
+                alert("❌ Invalid Captcha, please try again.");
+                generateCaptcha();
+            }
+        }
+        function getRandomColor() {
+            let letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+<body class="container mt-5" style="background-image: url(a6.jpg);" style="margin-top: 150px;">
+    <h2 class="text-center" style="color: aliceblue;">Two-Step Verification</h2>
+    <div class="card p-4 mx-auto" style="max-width: 400px; background-color:rgb(228, 228, 228)">
+        <label for="email" class="form-label">Enter Email:</label>
+        <input type="email" id="email" class="form-control" placeholder="example@example.com">
+        <button class="btn btn-primary mt-3 w-100" onclick="generateCaptcha()">Generate Captcha</button>
+        <div id="captchaSection" style="display: none;">
+            <p class="mt-3">Enter the text shown below:</p>
+            <div class="text-center fw-bold fs-4 bg-light p-2 border rounded" id="captchaText"></div>
+            <input type="text" id="captchaInput" class="form-control mt-2" placeholder="Enter Captcha">
+            <div class="d-flex justify-content-between mt-3">
+                <button class="btn btn-secondary" onclick="generateCaptcha()">🔄 Refresh</button>
+                <button class="btn btn-success" onclick="verifyCaptcha()">✔ Verify</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
